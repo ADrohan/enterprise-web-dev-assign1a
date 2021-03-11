@@ -1,0 +1,27 @@
+<div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
+    <table class="uk-table">
+        <caption>
+            Points of Interest
+        </caption>
+        <thead>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>User</th>
+        </thead>
+        <tbody class="uk-text-left">
+        {{#each pois}}
+            <tr>
+                <td> {{name}} </td>
+                <td> {{category}} </td>
+                <td> {{description}} </td>
+                <td> {{latitude}} </td>
+                <td> {{longitude}} </td>
+                <td>{{user.firstName}} {{user.lastName}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>
