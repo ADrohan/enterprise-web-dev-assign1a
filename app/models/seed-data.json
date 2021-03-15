@@ -1,0 +1,60 @@
+{
+  "users": {
+    "_model": "User",
+    "homer": {
+      "firstName": "Homer",
+      "lastName": "Simpson",
+      "email": "homer@simpson.com",
+      "password": "secret"
+    },
+    "marge": {
+      "firstName": "Marge",
+      "lastName": "Simpson",
+      "email": "marge@simpson.com",
+      "password": "secret"
+    },
+    "bart": {
+      "firstName": "Bart",
+      "lastName": "Simpson",
+      "email": "bart@simpson.com",
+      "password": "secret"
+    }
+  },
+  "category": {
+    "_model": "Category",
+    "urban": {
+      "name": "Waterford"
+    },
+    "mountains": {
+      "name": "Comeraghs"
+    },
+    "coastal": {
+      "name": "Tramore"
+    },
+    "rivers": {
+      "name": "Greenway"
+    }
+  },
+
+  "pois": {
+    "_model": "Poi",
+    "one": {
+      "name": "Tramore",
+      "description": "a view of the strand",
+      "user":"->users.homer",
+      "category": "->category.coastal"
+    },
+    "two": {
+      "name": "High up",
+      "description": "wide shot",
+      "user": "->users.marge",
+      "category": "->category.mountains"
+    },
+    "three": {
+      "name": "Mahon Falls",
+      "description": "near Mahon Falls",
+      "user": "->users.bart",
+      "category": "->category.mountains"
+    }
+  }
+}

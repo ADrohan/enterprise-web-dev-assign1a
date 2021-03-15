@@ -7,18 +7,14 @@
         <th>Name</th>
         <th>Category</th>
         <th>Description</th>
-        <th>Latitude</th>
-        <th>Longitude</th>
         <th>User</th>
         </thead>
         <tbody class="uk-text-left">
         {{#each pois}}
             <tr>
                 <td> {{name}} </td>
-                <td> {{category}} </td>
+                <td> {{category.name}} </td>
                 <td> {{description}} </td>
-                <td> {{latitude}} </td>
-                <td> {{longitude}} </td>
                 <td>{{user.firstName}} {{user.lastName}}</td>
             </tr>
         {{/each}}
