@@ -16,6 +16,12 @@
                 <td> {{category.name}} </td>
                 <td> {{description}} </td>
                 <td>{{user.firstName}} {{user.lastName}}</td>
+                <td>
+                  <a href="/updatepoi/{{_id}}" uk-icon="settings"></a>
+                </td>
+                <td>
+                  <a href="/deletepoi/{{_id}}" uk-icon="trash" ></a>
+                </td>
             </tr>
         {{/each}}
         </tbody>
