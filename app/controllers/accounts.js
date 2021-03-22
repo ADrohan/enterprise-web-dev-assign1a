@@ -4,18 +4,24 @@ const Boom = require("@hapi/boom");
 const Joi = require("@hapi/joi");
 
 const Accounts = {
+  // controller for first landing page
   index: {
     auth: false,
     handler: function (request, h) {
       return h.view("main", { title: "Welcome to Point of Information" });
     },
   },
+  // controller to view the signup page
   showSignup: {
     auth: false,
     handler: function (request, h) {
       return h.view("signup", { title: "Signup to Point of Information" });
     },
   },
+  /* When the user clicks on the submit button, the details entered are validated.
+  If validated the user is redirected to the home page. Otherwise they will
+  be informed of any errors and returned to the signup page.
+  */
   signup: {
     auth: false,
     validate: {
@@ -60,12 +66,17 @@ const Accounts = {
       }
     },
   },
+  // controller to view the login page
   showLogin: {
     auth: false,
     handler: function (request, h) {
       return h.view("login", { title: "Login to Points of Information" });
     },
   },
+  /* When the user clicks on the submit button, the details entered are validated.
+  If validated the user is redirected to the home page. Otherwise they will
+  be informed of any errors and returned to the signup page.
+  */
   login: {
     auth: false,
     validate: {
@@ -102,6 +113,7 @@ const Accounts = {
       }
     },
   },
+  // controller to show your account settings
   showSettings: {
     handler: async function (request, h) {
       try {
@@ -113,6 +125,7 @@ const Accounts = {
       }
     },
   },
+  // controller to update settings
   updateSettings: {
     validate: {
       payload: {
@@ -150,7 +163,7 @@ const Accounts = {
       }
     },
   },
-
+// controller to logout and clear the cookies
   logout: {
     handler: function (request, h) {
       request.cookieAuth.clear();

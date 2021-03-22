@@ -23,16 +23,16 @@
   "category": {
     "_model": "Category",
     "urban": {
-      "name": "Waterford"
+      "name": "urban"
     },
     "mountains": {
-      "name": "Comeraghs"
+      "name": "mountains"
     },
     "coastal": {
-      "name": "Tramore"
+      "name": "coastal"
     },
     "rivers": {
-      "name": "Greenway"
+      "name": "rivers"
     }
   },
 
@@ -41,20 +41,30 @@
     "one": {
       "name": "Tramore",
       "description": "a view of the strand",
+      "location": "Tramore",
       "user":"->users.homer",
       "category": "->category.coastal"
     },
     "two": {
       "name": "High up",
       "description": "wide shot",
+      "location": "Comeraghs",
       "user": "->users.marge",
       "category": "->category.mountains"
     },
     "three": {
       "name": "Mahon Falls",
       "description": "near Mahon Falls",
+      "location": "Comeraghs",
       "user": "->users.bart",
       "category": "->category.mountains"
+    },
+    "four": {
+      "name": "city sights",
+      "description": "a nice city walking route, beside John's river, from the city centre to the Tramore Road",
+      "location": "Waterford",
+      "user": "->users.bart",
+      "category": "->category.urban"
     }
   }
 }

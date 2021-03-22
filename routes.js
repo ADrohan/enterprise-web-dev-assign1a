@@ -2,6 +2,7 @@
 
 const Accounts = require("./app/controllers/accounts");
 const Pois = require("./app/controllers/pois");
+const Gallery = require("./app/controllers/gallery")
 
 module.exports = [
   // routes for accounts autentication
@@ -11,6 +12,8 @@ module.exports = [
   { method: "GET", path: "/logout", config: Accounts.logout },
   { method: "POST", path: "/signup", config: Accounts.signup },
   { method: "POST", path: "/login", config: Accounts.login },
+
+  //routes for setting
   { method: "GET", path: "/settings", config: Accounts.showSettings },
   { method: "POST", path: "/settings", config: Accounts.updateSettings },
 
@@ -23,6 +26,10 @@ module.exports = [
   { method: "POST", path: "/poisettings/{id}", config: Pois.updatepoi},
 
   // routes for images
+  { method: 'POST', path: '/uploadfile', config: Gallery.uploadFile },
+  { method: 'GET', path: '/deleteimage/{id}', config: Gallery.deleteImage },
+  //{ method: 'GET', path: '/', config: Gallery.showAllImages },
+// change above path
   {
     method: "GET",
     path: "/{param*}",

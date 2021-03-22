@@ -7,6 +7,7 @@ const Joi = require('@hapi/joi');
 const Boom = require('@hapi/boom');
 
 const Pois = {
+  // controller for home page
   home: {
     handler: async function (request, h) {
       const categories = await Category.find().lean();
@@ -41,12 +42,15 @@ const Pois = {
 
         const newPoi = new Poi({
           name: data.name,
-          category: category._id,
           description: data.description,
+          location: data.location,
+          category: category._id,
           user: user._id,
+         // file: data.file,
         });
         console.log(newPoi)
         await newPoi.save();
+
         return h.redirect("/allpois");
       } catch (err) {
         return h.view("main", { errors: [{ message: err.message }] });
@@ -80,11 +84,6 @@ const Pois = {
         const id = request.auth.credentials.id;
         const user = await User.findById(id).lean();
 
-        //For debiugging
-        console.log("poi id: " + poi_id); // retuns poi id
-        console.log("Poi category" + category); //
-        console.log("POI category name: " + category._id);
-
         return h.view('poisettings', { title: 'Update POI', poi: poi, categories: category, user: user  });
       } catch (err)
       {
@@ -99,6 +98,7 @@ const Pois = {
       payload: {
         name: Joi.string().required(),
         description: Joi.string().required(),
+        location: Joi.string().required(),
         category: Joi.string().required(),
       },
       options: {
@@ -110,7 +110,9 @@ const Pois = {
           .code(400);
       },
     },
-    //assign new data to each field if joi validation passes
+    /*assign new data to each field if joi validation passes.
+    */
+
     handler: async function (request, h) {
       try {
         const userEdit = request.payload;
@@ -123,9 +125,10 @@ const Pois = {
         const rawCategory = userEdit.category;
         const category = await Category.findOne({
           name: rawCategory,
-        });
+        })
         poi.name = userEdit.name;
         poi.description = userEdit.description;
+        poi.location = userEdit.location;
         poi.category = category._id
         poi.user = user._id
         await poi.save();

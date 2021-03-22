@@ -1,5 +1,6 @@
-<!-- Form to List Pois -->
-<div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
+<!-- Form to List all Pois -->
+<!--<div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">-->
+<div class="uk-margin  uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
     <table class="uk-table">
         <caption>
             Points of Interest
@@ -8,7 +9,10 @@
         <th>Name</th>
         <th>Category</th>
         <th>Description</th>
+        <th>Location</th>
         <th>User</th>
+        <th>Change Poi Details</th>
+        <th>Delete A Poi</th>
         </thead>
         <tbody class="uk-text-left">
         {{#each pois}}
@@ -16,6 +20,7 @@
                 <td> {{name}} </td>
                 <td> {{category.name}} </td>
                 <td> {{description}} </td>
+                <td> {{location}} </td>
                 <td>{{user.firstName}} {{user.lastName}}</td>
                 <td>
                   <a href="/poisettings/{{_id}}" uk-icon="settings"></a>
