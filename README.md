@@ -5,13 +5,13 @@ _________
 This Poi app allows users to upload information and photographs about 'Walking Places of Interest' in Waterford County, created as part of the HDip in Computer Science course at WIT.
 
 --------
-###Poi Core Features
+### Poi Core Features
 * Sign up / login / logout
 * Update User account settings
 * Create / View / Delete Pois with follwing characteristics: Name, description, location, category supporting image upload / view and delete
 * Public Galley
 
-## Languages Plugins and Frameworks Used
+## Plugins and Frameworks Used
 
 | Name | Function |
 | ---- | ----|
