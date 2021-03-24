@@ -2,7 +2,12 @@
 const User = require("../models/user");
 const Boom = require("@hapi/boom");
 const Joi = require("@hapi/joi");
-
+/*
+Controller for user accounts
+- signup
+- login
+- update account setting
+*/
 const Accounts = {
   // controller for first landing page
   index: {

@@ -1,7 +1,7 @@
-<!-- Form for a user to add a Poi -->
+<!--Form for a user to add a Poi-->
 <div class="uk-card uk-card-default uk-card-body uk-box-shadow-large">
   <h3 class="uk-card-title uk-text-center">Please enter details below</h3>
-  <form action="/addpoi" method="POST" >
+  <form action="/addpoi" method="POST" enctype="multipart/form-data" >
     <div class="uk-margin uk-text-left">
       <label class="uk-form-label" for="form-stacked-text">Name of Point of Interest</label>
       <div class=" uk-inline uk-width-1-1">
@@ -31,6 +31,12 @@
             <input class="uk-radio" type="radio" name="category" value="{{name}}" />{{name}}</label>
           <br/>
         {{/each}}
+      </div>
+    </div>
+    <div class="uk-margin">
+      <label class="uk-form-label" for="form-horizontal-text">Select Image</label>
+      <div class="uk-form-controls">
+        <input type="file" class="uk-input" name="imagefile" accept="image/png, image/jpeg, image/jpg">
       </div>
     </div>
     <div class="uk-margin">

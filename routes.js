@@ -26,9 +26,10 @@ module.exports = [
   { method: "POST", path: "/poisettings/{id}", config: Pois.updatepoi},
 
   // routes for images
-  { method: 'POST', path: '/uploadfile', config: Gallery.uploadFile },
+ // { method: 'POST', path: '/uploadfile', config: Gallery.uploadFile },
+
   { method: 'GET', path: '/deleteimage/{id}', config: Gallery.deleteImage },
-  //{ method: 'GET', path: '/', config: Gallery.showAllImages },
+  { method: 'GET', path: '/gallery', config: Gallery.showAllImages },
 // change above path
   {
     method: "GET",

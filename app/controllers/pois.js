@@ -5,6 +5,7 @@ const User = require("../models/user");
 const Category = require("../models/category");
 const Joi = require('@hapi/joi');
 const Boom = require('@hapi/boom');
+const ImageStore = require('../utils/image-store');
 
 const Pois = {
   // controller for home page
@@ -18,11 +19,13 @@ const Pois = {
   allpois: {
     handler: async function (request, h) {
       try {
+        const allImages = await ImageStore.getAllImages();
         const poiList = await Poi.find().populate("user").populate("category").lean();
         return h.view("allpois", {
           title: "Pois so far",
           pois: poiList,
-      });
+          images: allImages
+        });
       }catch (err) {
         return h.view( 'login', { errors: [{ message: err.message }] });
       }
@@ -46,16 +49,27 @@ const Pois = {
           location: data.location,
           category: category._id,
           user: user._id,
-         // file: data.file,
+
         });
+
         console.log(newPoi)
         await newPoi.save();
+
+        const file = request.payload.imagefile;
+        if (Object.keys(file).length > 0) {
+          await ImageStore.uploadImage(request.payload.imagefile);}
 
         return h.redirect("/allpois");
       } catch (err) {
         return h.view("main", { errors: [{ message: err.message }] });
       }
     },
+    payload: {
+      multipart: true,
+      output: 'data',
+      maxBytes: 209715200,
+      parse: true
+    }
   },
   // controller for deleting a poi
   deletepoi: {
@@ -91,6 +105,7 @@ const Pois = {
       }
     }
   },
+
   // controller to update a poi
   updatepoi: {
     // joi validation of fields
