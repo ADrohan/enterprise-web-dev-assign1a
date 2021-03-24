@@ -4,6 +4,8 @@
 _________
 This Poi app allows users to upload information and photographs about 'Walking Places of Interest' in Waterford County, created as part of the HDip in Computer Science course at WIT.
 
+Note: a precursor to this git repository is the repository _enterprise-web-dev-assign1_
+
 --------
 ### Poi Core Features
 * Sign up / login / logout
